@@ -25,7 +25,7 @@ namespace FestumClasses.Repository.Context
         {
             List<int> vrienden = new List<int>();
 
-            string Getuser = @"SELECT UserId, Gebruikersnaam, Status, E-mail, Profielfoto FROM [User] WHERE UserId = @id";
+            string Getuser = @"SELECT UserId, Gebruikersnaam, Status, [E-mail], Profielfoto FROM [User] WHERE UserId = @id";
             string Getfriends = @"SELECT UserIdVriend FROM Vriendenlijst WHERE UserId = @id";
 
             SqlCommand GetUser = new SqlCommand(Getuser, conn);
@@ -46,7 +46,7 @@ namespace FestumClasses.Repository.Context
             {
                 if (reader.Read())
                 {
-                    User gebruiker = new User((int)reader["UserId"], (string)reader["Gebruikersnaam"], vrienden, (string)reader["Status"], (string)reader["E-mail"], (Bitmap)((new ImageConverter()).ConvertFrom(reader["Profielfoto"])));
+                    User gebruiker = new User((int)reader["UserId"], (string)reader["Gebruikersnaam"], vrienden, (string)reader["Status"], (string)reader["E-mail"], (byte[])reader["Profielfoto"]);
                     return gebruiker;
                 }
             }
@@ -57,7 +57,7 @@ namespace FestumClasses.Repository.Context
         {
             User obj = (User)value;
 
-            string InsertQuery = @"INSERT INTO [User] (Gebruikersnaam, Wachtwoord, Status, E-mail, Profielfoto) VALUES (@gebruikersnaam, @wachtwoord, @status, @e-mail, @profielfoto OUTPUT UserId)";
+            string InsertQuery = @"INSERT INTO [User] (Gebruikersnaam, Wachtwoord, Status, [E-mail], Profielfoto) VALUES (@gebruikersnaam, @wachtwoord, @status, @e-mail, @profielfoto OUTPUT UserId)";
             using (SqlCommand cmd = new SqlCommand(InsertQuery, conn))
             {
                 cmd.Parameters.AddWithValue("gebruikersnaam", (string)obj.Gebruikersnaam);

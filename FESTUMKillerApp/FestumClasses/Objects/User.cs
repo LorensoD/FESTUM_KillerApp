@@ -14,7 +14,7 @@ namespace FestumClasses.Objects
         private List<int> vrienden = new List<int>();
         private string status;
         private string eMail;
-        private Bitmap profielfoto;
+        private byte[] profielfoto;
         private string wachtwoord;
 
         //Het ID van de User in de database
@@ -88,7 +88,7 @@ namespace FestumClasses.Objects
         }
 
         //De profielfoto van de User opgeslagen als byte array
-        public Bitmap Profielfoto
+        public byte[] Profielfoto
         {
             get
             {
@@ -115,7 +115,7 @@ namespace FestumClasses.Objects
             }
         }
 
-        public User(int userID, string gebruikersnaam, List<int> vrienden, string status, string eMail, Bitmap profielfoto)
+        public User(int userID, string gebruikersnaam, List<int> vrienden, string status, string eMail, byte[] profielfoto)
         {
             this.UserID = userID;
             this.Gebruikersnaam = gebruikersnaam;

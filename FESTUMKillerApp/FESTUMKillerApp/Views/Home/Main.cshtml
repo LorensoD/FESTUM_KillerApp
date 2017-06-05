@@ -26,15 +26,15 @@
             <li><a href="#">Chats</a></li>
             <li><a href="#">Vrienden</a></li>
             <li>
-                <a href="#">Gebruiker</a>
+                <a href="#">@Model.huidigeGebruiker.Gebruikersnaam</a>
                 <ul>
                     <li><a href="#">Bekijk account</a></li>
-                    <li><a href="#">Log uit</a></li>
+                    <li><a href="~/Home/Index">Log uit</a></li>
                 </ul>
             </li>
         </ul>
     </nav>
     <div>
-        <p>Welkom op de hompegina van FESTUM @Model.huidigeGebruiker.Gebruikersnaam.ToString()</p>
+        <p>@Model.huidigeGebruiker.Gebruikersnaam</p>
     </div>
 </body>

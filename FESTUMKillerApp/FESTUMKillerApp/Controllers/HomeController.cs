@@ -19,10 +19,14 @@ namespace FESTUMKillerApp.Controllers
             return View();
         }
 
-        //public ActionResult Main()
-        //{
-        //    return View();
-        //}
+        public ActionResult Main(UserModel model)
+        {
+            UserRepository ur = new UserRepository();
+
+            model.huidigeGebruiker = ur.getUser(1);
+
+            return View(model);
+        }
 
         [HttpPost]
         public ActionResult Index(LoginModel model)
@@ -31,7 +35,7 @@ namespace FESTUMKillerApp.Controllers
 
             UserId = ur.tryLogin(model.gebruikersnaam, model.wachtwoord);
 
-            if (UserId < 0)
+            if (UserId <= 0)
             {
                 ViewBag.error = "Incorrecte login data!";
                 return View();
@@ -42,14 +46,14 @@ namespace FESTUMKillerApp.Controllers
             }
         }
 
-        [HttpPost]
-        public ActionResult Main(UserModel model)
-        {
-            UserRepository ur = new UserRepository();
+        //[HttpPost]
+        //public ActionResult Main(UserModel model)
+        //{
+        //    UserRepository ur = new UserRepository();
 
-            model.huidigeGebruiker = ur.getUser(UserId);
+        //    model.huidigeGebruiker = ur.getUser(UserId);
 
-            return View(model);
-        }
+        //    return View(model);
+        //}
     }
 }
