@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FESTUMKillerApp", "FESTUMKillerApp\FESTUMKillerApp.csproj", "{79799323-C253-4467-AB1F-5A7A36F3D36F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FestumClasses", "FestumClasses\FestumClasses.csproj", "{C0C20851-965E-44CD-83B7-0B3E206A69CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FESTUMTestProject", "FESTUMTestProject\FESTUMTestProject.csproj", "{8AB1CC60-0856-4FA3-B2E4-7B3A597F5CE8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{79799323-C253-4467-AB1F-5A7A36F3D36F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79799323-C253-4467-AB1F-5A7A36F3D36F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79799323-C253-4467-AB1F-5A7A36F3D36F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79799323-C253-4467-AB1F-5A7A36F3D36F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0C20851-965E-44CD-83B7-0B3E206A69CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0C20851-965E-44CD-83B7-0B3E206A69CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0C20851-965E-44CD-83B7-0B3E206A69CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0C20851-965E-44CD-83B7-0B3E206A69CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AB1CC60-0856-4FA3-B2E4-7B3A597F5CE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AB1CC60-0856-4FA3-B2E4-7B3A597F5CE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AB1CC60-0856-4FA3-B2E4-7B3A597F5CE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AB1CC60-0856-4FA3-B2E4-7B3A597F5CE8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

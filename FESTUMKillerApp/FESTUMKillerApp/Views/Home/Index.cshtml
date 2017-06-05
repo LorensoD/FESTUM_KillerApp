@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<head>
+    <meta charset="UTF-8">
+    <title>FESTUM login</title>
+    <link rel="stylesheet" href="~/Content/Site.css">
+</head>
+
+<div class="container">
+    <div class="login">
+        <h1 class="login-heading">
+            <strong>Welcome.</strong> Please login.
+        </h1>
+        <form method="post">
+            <input type="text" name="user" placeholder="Username" required="required" class="input-txt" />
+            <input type="password" name="password" placeholder="Password" required="required" class="input-txt" />
+            <div class="login-footer">
+                <a href="#" class="lnk">Registreren</a>
+                <button type="submit" class="btn btn--right">Sign in</button>
+            </div>
+        </form>
+    </div>
+</div>
