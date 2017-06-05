@@ -13,6 +13,8 @@ namespace FESTUMKillerApp
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapRoute("Main", "Home/Main", new { controller = "Home", action = "Main" });
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

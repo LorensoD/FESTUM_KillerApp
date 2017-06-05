@@ -11,21 +11,26 @@ namespace FESTUMKillerApp.Controllers
 {
     public class HomeController : Controller
     {
-        int UserId;
-        User currentUser;
-
+        
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult Main(UserModel model)
+        public ActionResult Main(UserModel model, int userId)
         {
             UserRepository ur = new UserRepository();
 
-            model.huidigeGebruiker = ur.getUser(1);
+            model.huidigeGebruiker = ur.getUser(userId);
 
             return View(model);
+        }
+
+        public ActionResult MaakFeest(UserModel modelFeest)
+        {
+            
+
+            return View(modelFeest);
         }
 
         [HttpPost]
@@ -33,7 +38,7 @@ namespace FESTUMKillerApp.Controllers
         {
             UserRepository ur = new UserRepository();
 
-            UserId = ur.tryLogin(model.gebruikersnaam, model.wachtwoord);
+            int UserId = ur.tryLogin(model.gebruikersnaam, model.wachtwoord);
 
             if (UserId <= 0)
             {
@@ -42,7 +47,7 @@ namespace FESTUMKillerApp.Controllers
             }
             else
             {
-                return RedirectToAction("Main");
+                return RedirectToAction("Main", "Home", new {userId= UserId});
             }
         }
 
