@@ -1,4 +1,5 @@
-﻿using FestumClasses.Repository.Logic;
+﻿using FestumClasses.Objects;
+using FestumClasses.Repository.Logic;
 using FESTUMKillerApp.Models;
 using System;
 using System.Collections.Generic;
@@ -10,22 +11,25 @@ namespace FESTUMKillerApp.Controllers
 {
     public class HomeController : Controller
     {
+        int UserId;
+        User currentUser;
+
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult Main()
-        {
-            return View();
-        }
+        //public ActionResult Main()
+        //{
+        //    return View();
+        //}
 
         [HttpPost]
         public ActionResult Index(LoginModel model)
         {
             UserRepository ur = new UserRepository();
 
-            int UserId = ur.tryLogin(model.gebruikersnaam, model.wachtwoord);
+            UserId = ur.tryLogin(model.gebruikersnaam, model.wachtwoord);
 
             if (UserId < 0)
             {
@@ -34,8 +38,18 @@ namespace FESTUMKillerApp.Controllers
             }
             else
             {
-                return Redirect("Main");
+                return RedirectToAction("Main");
             }
+        }
+
+        [HttpPost]
+        public ActionResult Main(UserModel model)
+        {
+            UserRepository ur = new UserRepository();
+
+            model.huidigeGebruiker = ur.getUser(UserId);
+
+            return View(model);
         }
     }
 }

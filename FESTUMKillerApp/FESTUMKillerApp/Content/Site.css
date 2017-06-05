@@ -102,46 +102,76 @@ html {
 
 /*Einde css inlog pagina*/
 
-/*Begin css voor home pagina*/
-div.containerMenuRedTopBotomBordersOut
-{
-    font-family: Raleway;
-    margin: 0 auto;
-	padding: 10em 3em;
-	text-align: center;
+/*Begin css voor NAV bar*/
+nav {
+  width: 70%;
+  margin: 0 auto;
 }
 
-.containerMenuRedTopBotomBordersOut
-{
-    background: #f44336;
+nav .menu {
+  height: 60px;
+  background: #36363f;
+  border-radius: 5px;
+  padding: 0;
+  margin: 0;
+  text-align: center; /* center the li */
 }
 
-div.containerMenuRedTopBotomBordersOut a:before, div.containerMenuRedTopBotomBordersOut a:after
-{
-    position: absolute;
-    left: 0px;
-    width: 100%;
-    height: 2px;
-    background: #FFF;
-    content: "";
-    opacity: 0;
-    transition: all 0.3s;
+nav .menu li {
+  display: inline-block; 
 }
 
-div.containerMenuRedTopBotomBordersOut a:before
-{
-    top: 0px;
-    transform: translateY(10px);
+nav .menu li a {
+  font-family: arial, sans-serif;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  line-height: 60px;
+  vertical-align: middle;
+  padding: 20px;
+  transition: all 0.5s;
 }
 
-div.containerMenuRedTopBotomBordersOut a:after
-{
-    bottom: 0px;
-    transform: translateY(-10px);
+nav .menu li:hover > a {
+  background: #25252B;
+  transition: all 0.5s;
+  color: #ccc;
 }
 
-div.containerMenuRedTopBotomBordersOut a:hover:before, div.containerMenuRedTopBotomBordersOut a:hover:after
-{
-    opacity: 1;
-    transform: translateY(0px);
+/* sub-menus */
+
+.menu li > ul {
+  position: absolute;
+  margin-left: -2.21%;
+  display: none;
+  animation: slide 0.1s linear 0s normal;
 }
+
+.menu li > ul > li {
+  display: block;
+  background: #25252b;
+  border-top: 1px solid #25252f;
+}
+
+.menu li > ul > li > a {
+  display: block;
+  padding: 5px 12px;
+}
+
+.menu li:hover > ul {
+  display: block;
+  animation: slide 0.1s linear 0s normal;
+}
+
+.menu li:hover > ul li:hover > a {
+  background: #18181F;
+}
+
+
+
+@keyframes slide {
+  from  { transform: rotateY(35deg) skewX(10deg); }
+  to     { transform: rotateY(0deg) skewX(0deg); }
+}
+
+/*Einde css voor NAV bar*/

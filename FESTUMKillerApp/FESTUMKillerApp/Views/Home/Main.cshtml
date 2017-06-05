@@ -1,4 +1,7 @@
-﻿@{
+﻿@using FESTUMKillerApp.Models
+@model UserModel
+
+@{
     Layout = null;
 }
 
@@ -9,11 +12,29 @@
 </head>
 
 <body>
-    <div class="containerMenuRedTopBotomBordersOut">
-        <a>HOME</a>
-        <a>ARTICLES</a>
-        <a>PORTFOLIO</a>
-        <a>ABOUT</a>
-        <a>CONTACT</a>
+    <nav>
+        <ul class="menu">
+            <li><a href="#">home</a></li>
+            <!-- products sub-menu -->
+            <li>
+                <a href="#">Feesten</a>
+                <ul>
+                    <li><a href="#">Feesten zoeken</a></li>
+                    <li><a href="#">Feest aanmaken</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Chats</a></li>
+            <li><a href="#">Vrienden</a></li>
+            <li>
+                <a href="#">Gebruiker</a>
+                <ul>
+                    <li><a href="#">Bekijk account</a></li>
+                    <li><a href="#">Log uit</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div>
+        <p>Welkom op de hompegina van FESTUM @Model.huidigeGebruiker.Gebruikersnaam.ToString()</p>
     </div>
 </body>
