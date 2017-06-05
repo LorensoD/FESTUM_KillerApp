@@ -1,6 +1,43 @@
-﻿@helper HelperName(string name) {
-    // your helper can contain code and/or markup, e.g.
-    // var msg = "Hello " + name;
-    // <p>@msg</p>
-    // For more information, visit http://go.microsoft.com/fwlink/?LinkID=204658
+﻿@using FESTUMKillerApp.Models
+@model UserModel
+
+@{
+    Layout = null;
 }
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>FESTUM</title>
+    <link rel="stylesheet" href="~/Content/Site.css">
+</head>
+
+<body>
+    <nav>
+        <ul class="menu">
+            <li><a href="#">home</a></li>
+            <!-- products sub-menu -->
+            <li>
+                <a href="#">Feesten</a>
+                <ul>
+                    <li><a href="#">Feesten zoeken</a></li>
+                    <li><a href="#">Feest aanmaken</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Chats</a></li>
+            <li><a href="#">Vrienden</a></li>
+            <li>
+                <a href="#">@Model.huidigeGebruiker.Gebruikersnaam</a>
+                <ul>
+                    <li><a href="#">Bekijk account</a></li>
+                    <li><a href="~/Home/Index">Log uit</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div>
+        <p>@Model.huidigeGebruiker.Gebruikersnaam</p>
+        <form method="post">
+
+        </form>
+    </div>
+</body>
