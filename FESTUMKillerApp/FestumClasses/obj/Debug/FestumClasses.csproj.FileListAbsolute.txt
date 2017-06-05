@@ -1,1 +1,6 @@
 C:\Users\Lorenso\Documents\GitHub\DierenasielWebBased\FESTUMKillerApp\FestumClasses\obj\Debug\FestumClasses.csprojResolveAssemblyReference.cache
+C:\Users\Lorenso\Documents\GitHub\FESTUM_KillerApp\FESTUMKillerApp\FestumClasses\bin\Debug\FestumClasses.dll
+C:\Users\Lorenso\Documents\GitHub\FESTUM_KillerApp\FESTUMKillerApp\FestumClasses\bin\Debug\FestumClasses.pdb
+C:\Users\Lorenso\Documents\GitHub\FESTUM_KillerApp\FESTUMKillerApp\FestumClasses\obj\Debug\FestumClasses.csprojResolveAssemblyReference.cache
+C:\Users\Lorenso\Documents\GitHub\FESTUM_KillerApp\FESTUMKillerApp\FestumClasses\obj\Debug\FestumClasses.dll
+C:\Users\Lorenso\Documents\GitHub\FESTUM_KillerApp\FESTUMKillerApp\FestumClasses\obj\Debug\FestumClasses.pdb
