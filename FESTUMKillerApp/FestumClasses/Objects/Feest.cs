@@ -12,6 +12,7 @@ namespace FestumClasses.Objects
         private string naam;
         private string locatie;
         private string beschrijving;
+        private byte[] plaatje;
         private int hostFeest;
         private List<int> gasten = new List<int>();
         private DateTime datumTijdFeest;
@@ -126,6 +127,20 @@ namespace FestumClasses.Objects
             set
             {
                 fotoVerhaal = value;
+            }
+        }
+
+        //Het plaatje van het feest
+        public byte[] Plaatje
+        {
+            get
+            {
+                return plaatje;
+            }
+
+            set
+            {
+                plaatje = value;
             }
         }
 

@@ -10,6 +10,6 @@ namespace FESTUMKillerApp.Models
     public class UserModel
     {
         [Required]
-        public User huidigeGebruiker;
+        public User huidigeGebruiker { get; set; }
     }
 }

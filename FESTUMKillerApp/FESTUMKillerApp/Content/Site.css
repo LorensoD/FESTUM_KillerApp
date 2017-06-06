@@ -175,3 +175,16 @@ nav .menu li:hover > a {
 }
 
 /*Einde css voor NAV bar*/
+
+/*Begin css feest aanmaken*/
+textarea {
+    resize: none;
+    overflow: auto;
+    font-family: "Tenor Sans", sans-serif;
+}
+
+.MaakFeest {
+    width: 70%;
+    height: 100%;
+    margin: 0 auto;
+}

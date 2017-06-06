@@ -1,5 +1,5 @@
 ﻿@using FESTUMKillerApp.Models
-@model UserModel
+@model MaakFeestModel
 
 @{
     Layout = null;
@@ -9,18 +9,19 @@
     <meta name="viewport" content="width=device-width" />
     <title>FESTUM</title>
     <link rel="stylesheet" href="~/Content/Site.css">
+    <script class="jsbin" src="~/Scripts/_references.js"></script>
 </head>
 
 <body>
     <nav>
         <ul class="menu">
-            <li><a href="#">home</a></li>
+            <li><a href="~/Home/Main">home</a></li>
             <!-- products sub-menu -->
             <li>
                 <a href="#">Feesten</a>
                 <ul>
                     <li><a href="#">Feesten zoeken</a></li>
-                    <li><a href="#">Feest aanmaken</a></li>
+                    <li><a href="~/Home/MaakFeest">Feest aanmaken</a></li>
                 </ul>
             </li>
             <li><a href="#">Chats</a></li>
@@ -34,10 +35,22 @@
             </li>
         </ul>
     </nav>
-    <div>
-        <p>@Model.huidigeGebruiker.Gebruikersnaam</p>
+    <div class="MaakFeest">
         <form method="post">
-
+            <h1>Maak een nieuw feest aan</h1>
+            <input type="text" name="feestNaam" placeholder="De naam van het feest" required="required" class="input-txt" />
+            <input type="text" name="adres" placeholder="Adres" required="required" class="input-txt" />
+            <textarea type="text" rows="4" name="beschrijving" placeholder="Beschrijving van het feest" required="required" class="input-txt"></textarea>
+            <input type="datetime-local" name="feestDatumTijd" class="input-txt" required="required">        
+            @*@Html.TextBoxFor(MaakFeestModel => MaakFeestModel.aanTeMakenFeest.Naam)
+            @Html.TextBoxFor(MaakFeestModel => MaakFeestModel.aanTeMakenFeest.Locatie)
+            @Html.TextAreaFor(MaakFeestModel => MaakFeestModel.aanTeMakenFeest.Beschrijving)*@
+            <div class="form-group">
+                @*<input type="file" name="filename" accept="image/gif, image/jpeg, image/png">*@
+                <input type='file' onchange="readURL(this);" />
+                <img id="blah" src="#" alt="your image" />
+            </div>
+            <button type="submit" class="btn btn--right">Maak feest</button>
         </form>
     </div>
 </body>

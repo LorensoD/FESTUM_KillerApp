@@ -14,13 +14,13 @@
 <body>
     <nav>
         <ul class="menu">
-            <li><a href="#">home</a></li>
+            <li><a href="~/Home/Main">home</a></li>
             <!-- products sub-menu -->
             <li>
                 <a href="#">Feesten</a>
                 <ul>
                     <li><a href="#">Feesten zoeken</a></li>
-                    <li>@Html.ActionLink("Feest aanmaken", "MaakFeest", new {modelFeest= Model })</li>
+                    <li><a href="~/Home/MaakFeest">Feest aanmaken</a></li>
                 </ul>
             </li>
             <li><a href="#">Chats</a></li>

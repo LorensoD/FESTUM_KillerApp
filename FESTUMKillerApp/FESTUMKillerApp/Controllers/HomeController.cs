@@ -17,18 +17,19 @@ namespace FESTUMKillerApp.Controllers
             return View();
         }
 
-        public ActionResult Main(UserModel model, int userId)
+        public ActionResult Main(UserModel model)
         {
             UserRepository ur = new UserRepository();
 
-            model.huidigeGebruiker = ur.getUser(userId);
+            model.huidigeGebruiker = ur.getUser((int)Session["UserID"]);
+            Session["huidigeGebruiker"] = model.huidigeGebruiker;
 
             return View(model);
         }
 
-        public ActionResult MaakFeest(UserModel modelFeest)
+        public ActionResult MaakFeest(MaakFeestModel modelFeest)
         {
-            
+            modelFeest.huidigeGebruiker = (User)Session["huidigeGebruiker"];
 
             return View(modelFeest);
         }
@@ -40,6 +41,8 @@ namespace FESTUMKillerApp.Controllers
 
             int UserId = ur.tryLogin(model.gebruikersnaam, model.wachtwoord);
 
+            Session["UserID"] = UserId;
+
             if (UserId <= 0)
             {
                 ViewBag.error = "Incorrecte login data!";
@@ -47,7 +50,7 @@ namespace FESTUMKillerApp.Controllers
             }
             else
             {
-                return RedirectToAction("Main", "Home", new {userId= UserId});
+                return RedirectToAction("Main", "Home");
             }
         }
 
