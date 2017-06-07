@@ -25,7 +25,7 @@ namespace FestumClasses.Repository.Context
             {
                 while (reader.Read())
                 {
-                    feesten.Add(new Feest((int)reader["FeestId"], (string)reader["Naam"], (string)reader["Locatie"], (string)reader["Beschrijving"], (int)reader["OrganisatorId"], (DateTime)((DateTime)reader["Datum"] + (TimeSpan)reader["AanvangsTijd"])));
+                    feesten.Add(new Feest((int)reader["FeestId"], (string)reader["Naam"], (string)reader["Locatie"], (string)reader["Beschrijving"], (int)reader["OrganisatorId"], (byte[])reader["Plaatje"], (DateTime)((DateTime)reader["Datum"] + (TimeSpan)reader["AanvangTijd"])));
                 }
             }
             return feesten.Cast<object>().ToList();
@@ -57,18 +57,18 @@ namespace FestumClasses.Repository.Context
             {
                 if (reader.Read())
                 {
-                    Feest fissa = new Feest((int)reader["FeestId"], (string)reader["Naam"], (string)reader["Locatie"], (string)reader["Beschrijving"], (int)reader["OrganisatorId"], gasten, (DateTime)((DateTime)reader["Datum"] + (TimeSpan)reader["AanvangsTijd"]));
+                    Feest fissa = new Feest((int)reader["FeestId"], (string)reader["Naam"], (string)reader["Locatie"], (string)reader["Beschrijving"], (int)reader["OrganisatorId"], gasten, (DateTime)((DateTime)reader["Datum"] + (TimeSpan)reader["AanvangTijd"]));
                     return fissa;
                 }
             }
             return null;
         }
 
-        public int saveValue(object value)
+        public void saveValue(object value)
         {
             Feest obj = (Feest)value;
 
-            string InsertQuery = @"INSERT INTO Feest (Naam, Locatie, Beschrijving, Plaatje, AanvangTijd, Datum) VALUES (@naam, @locatie, @beschrijving, @plaatje, @aanvangTijd, @datum OUTPUT FeestId)";
+            string InsertQuery = @"INSERT INTO Feest (Naam, Locatie, Beschrijving, Plaatje, AanvangTijd, Datum, OrganisatorId) VALUES (@naam, @locatie, @beschrijving, @plaatje, @aanvangTijd, @datum, @organisator)";
             using (SqlCommand cmd = new SqlCommand(InsertQuery, conn))
             {
                 cmd.Parameters.AddWithValue("naam", (string)obj.Naam);
@@ -77,8 +77,8 @@ namespace FestumClasses.Repository.Context
                 cmd.Parameters.AddWithValue("plaatje", (byte[])obj.Plaatje);
                 cmd.Parameters.AddWithValue("aanvangTijd", obj.DatumTijdFeest.TimeOfDay);
                 cmd.Parameters.AddWithValue("datum", obj.DatumTijdFeest.Date);
-                obj.FeestID = (int)cmd.ExecuteScalar();
-                return obj.FeestID;
+                cmd.Parameters.AddWithValue("organisator", (int)obj.HostFeest);
+                cmd.ExecuteNonQuery();
             }
         }
 

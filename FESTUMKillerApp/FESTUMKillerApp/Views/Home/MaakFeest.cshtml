@@ -20,7 +20,7 @@
             <li>
                 <a href="#">Feesten</a>
                 <ul>
-                    <li><a href="#">Feesten zoeken</a></li>
+                    <li><a href="~/Home/ZoekFeest">Feesten zoeken</a></li>
                     <li><a href="~/Home/MaakFeest">Feest aanmaken</a></li>
                 </ul>
             </li>
@@ -38,6 +38,7 @@
     <div class="MaakFeest">
         <form method="post">
             <h1>Maak een nieuw feest aan</h1>
+            @*@Html.EditorFor(MaakFeestModel => MaakFeestModel.aanTeMakenFeest.Naam, new { @type = "text", @name = "feestNaam", @placeholder = "De naam van het feest", @required = "required", @class="input-txt" })*@
             <input type="text" name="feestNaam" placeholder="De naam van het feest" required="required" class="input-txt" />
             <input type="text" name="adres" placeholder="Adres" required="required" class="input-txt" />
             <textarea type="text" rows="4" name="beschrijving" placeholder="Beschrijving van het feest" required="required" class="input-txt"></textarea>

@@ -9,7 +9,7 @@ namespace FestumClasses.Repository.Interface
     interface IMainContext
     {
         object getValue(int id);
-        int saveValue(object value);
+        void saveValue(object value);
         List<object> getAllValues();
         void deleteValue(object value);
     }

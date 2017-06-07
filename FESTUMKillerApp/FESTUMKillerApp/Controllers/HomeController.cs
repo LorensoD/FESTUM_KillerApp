@@ -2,10 +2,12 @@
 using FestumClasses.Repository.Logic;
 using FESTUMKillerApp.Models;
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Drawing;
 
 namespace FESTUMKillerApp.Controllers
 {
@@ -27,11 +29,22 @@ namespace FESTUMKillerApp.Controllers
             return View(model);
         }
 
-        public ActionResult MaakFeest(MaakFeestModel modelFeest)
+        public ActionResult MaakFeest()
         {
+            MaakFeestModel modelFeest = new MaakFeestModel();
             modelFeest.huidigeGebruiker = (User)Session["huidigeGebruiker"];
 
             return View(modelFeest);
+        }
+
+        public ActionResult ZoekFeest(ZoekFeestModel model)
+        {
+            model.huidigeGebruiker = (User)Session["huidigeGebruiker"];
+
+            FeestRepository fr = new FeestRepository();
+            model.feesten = fr.getAllFeesten();
+
+            return View(model);
         }
 
         [HttpPost]
@@ -55,11 +68,22 @@ namespace FESTUMKillerApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult MaakFeestModel(MaakFeestModel modelFeest)
+        public ActionResult MaakFeest(MaakFeestModel modelFeest)
         {
+            modelFeest.huidigeGebruiker = (User)Session["huidigeGebruiker"];
+            FeestRepository fr = new FeestRepository();
 
+            //Convert string naar datetime
+            DateTime date = DateTime.Parse(Request.Form["feestDatumTijd"]);
 
-            return RedirectToAction("Index", "Home");
+            //Convert image naar byte array
+            byte[] plaatje = System.IO.File.ReadAllBytes("C:\\Users\\Lorenso\\Documents\\HBO-ICT periode 3\\FUN\\Standaard_profielfoto.png");
+
+            Feest fissa = new Feest(Request.Form["feestNaam"], Request.Form["adres"], Request.Form["beschrijving"], (int)modelFeest.huidigeGebruiker.UserID, plaatje, date);
+
+            fr.saveFeest(fissa);
+
+            return RedirectToAction("Main", "Home");
         }
     }
 }

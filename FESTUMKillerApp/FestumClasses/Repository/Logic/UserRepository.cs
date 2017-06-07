@@ -28,9 +28,9 @@ namespace FestumClasses.Repository.Logic
             return (User)this.context.getValue(id);
         }
 
-        public int saveUser(User user)
+        public void saveUser(User user)
         {
-            return this.context.saveValue(user);
+            this.context.saveValue(user);
         }
 
         public void deleteUser(int id)

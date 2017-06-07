@@ -80,6 +80,9 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.IO.Log" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -155,6 +158,7 @@
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\MaakFeestModel.cs" />
     <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Models\ZoekFeestModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -197,6 +201,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Main.cshtml" />
     <Content Include="Views\Home\MaakFeest.cshtml" />
+    <Content Include="Views\Home\ZoekFeest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

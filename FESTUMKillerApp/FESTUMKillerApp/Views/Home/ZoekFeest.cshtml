@@ -1,5 +1,6 @@
 ﻿@using FESTUMKillerApp.Models
-@model UserModel
+@using FestumClasses.Objects
+@model ZoekFeestModel
 
 @{
     Layout = null;
@@ -34,7 +35,19 @@
             </li>
         </ul>
     </nav>
-    <div>
-        <p>@Model.huidigeGebruiker.Gebruikersnaam</p>
-    </div>
+    <h1>Zoek een feest</h1>
+    @foreach(Feest feest in Model.feesten)
+    {
+        <div class="feest-element">
+            <a href="~/Home/OverzichtFeest/@feest.FeestID">
+                @*<img src="@Url.Action("getImg", "Person", new { id = item.Id })" alt="Person Image" />*@
+                <img src="data:image;base64,@System.Convert.ToBase64String(@feest.Plaatje)" />
+                @*<img src="@feest.Plaatje">*@
+                <h3>@feest.Naam</h3>
+                <p>@feest.Beschrijving</p>
+                <p>@feest.Locatie</p>
+                <p>@feest.DatumTijdFeest</p>
+            </a>
+        </div>
+    }
 </body>

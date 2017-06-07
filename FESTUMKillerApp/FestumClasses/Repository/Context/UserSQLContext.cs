@@ -53,11 +53,11 @@ namespace FestumClasses.Repository.Context
             return null;
         }
 
-        public int saveValue(object value)
+        public void saveValue(object value)
         {
             User obj = (User)value;
 
-            string InsertQuery = @"INSERT INTO [User] (Gebruikersnaam, Wachtwoord, Status, [E-mail], Profielfoto) VALUES (@gebruikersnaam, @wachtwoord, @status, @e-mail, @profielfoto OUTPUT UserId)";
+            string InsertQuery = @"INSERT INTO [User] (Gebruikersnaam, Wachtwoord, Status, [E-mail], Profielfoto) VALUES (@gebruikersnaam, @wachtwoord, @status, @e-mail, @profielfoto)";
             using (SqlCommand cmd = new SqlCommand(InsertQuery, conn))
             {
                 cmd.Parameters.AddWithValue("gebruikersnaam", (string)obj.Gebruikersnaam);
@@ -66,8 +66,7 @@ namespace FestumClasses.Repository.Context
                 cmd.Parameters.AddWithValue("e-mail", (string)obj.EMail);
                 cmd.Parameters.AddWithValue("profielfoto", obj.Profielfoto);
                 obj.Wachtwoord = "";
-                obj.UserID = (int)cmd.ExecuteScalar();
-                return obj.UserID;
+                cmd.ExecuteNonQuery();
             }
         }
 
