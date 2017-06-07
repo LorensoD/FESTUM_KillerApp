@@ -46,9 +46,9 @@
             @Html.TextBoxFor(MaakFeestModel => MaakFeestModel.aanTeMakenFeest.Locatie)
             @Html.TextAreaFor(MaakFeestModel => MaakFeestModel.aanTeMakenFeest.Beschrijving)*@
             <div class="form-group">
-                @*<input type="file" name="filename" accept="image/gif, image/jpeg, image/png">*@
-                <input type='file' onchange="readURL(this);" />
-                <img id="blah" src="#" alt="your image" />
+                <input type="file" name="filename" accept="image/gif, image/jpeg, image/png" required="required" class="btn">
+                @*<input type='file' onchange="readURL(this);" />
+                <img id="blah" src="#" alt="your image" />*@
             </div>
             <button type="submit" class="btn btn--right">Maak feest</button>
         </form>

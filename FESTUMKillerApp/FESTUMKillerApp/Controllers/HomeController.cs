@@ -54,14 +54,12 @@ namespace FESTUMKillerApp.Controllers
             }
         }
 
-        //[HttpPost]
-        //public ActionResult Main(UserModel model)
-        //{
-        //    UserRepository ur = new UserRepository();
+        [HttpPost]
+        public ActionResult MaakFeestModel(MaakFeestModel modelFeest)
+        {
 
-        //    model.huidigeGebruiker = ur.getUser(UserId);
 
-        //    return View(model);
-        //}
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

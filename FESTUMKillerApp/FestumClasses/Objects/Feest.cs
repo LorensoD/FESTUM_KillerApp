@@ -156,6 +156,27 @@ namespace FestumClasses.Objects
             this.FotoVerhaal = fotoVerhaal;
         }
 
+        public Feest(int feestID, string naam, string locatie, string beschrijving, int hostFeest, List<int> gasten, DateTime datumTijdFeest)
+        {
+            this.FeestID = feestID;
+            this.Naam = naam;
+            this.Locatie = locatie;
+            this.Beschrijving = beschrijving;
+            this.HostFeest = hostFeest;
+            this.Gasten = gasten;
+            this.DatumTijdFeest = datumTijdFeest;
+        }
+
+        public Feest(int feestID, string naam, string locatie, string beschrijving, int hostFeest, DateTime datumTijdFeest)
+        {
+            this.FeestID = feestID;
+            this.Naam = naam;
+            this.Locatie = locatie;
+            this.Beschrijving = beschrijving;
+            this.HostFeest = hostFeest;
+            this.DatumTijdFeest = datumTijdFeest;
+        }
+
         public Feest(string naam, string locatie, string beschrijving, int hostFeest, List<int> gasten, DateTime datumTijdFeest)
         {
             this.Naam = naam;
