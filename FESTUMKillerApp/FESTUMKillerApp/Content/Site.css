@@ -190,7 +190,7 @@ textarea {
 }
 
 /*Begin css feest zoeken*/
-.feest-element a{
+a {
     color: black;
     text-decoration: none;
 }
@@ -200,10 +200,16 @@ textarea {
     float: left;
 }
 
+.allefeest-elementen h1{
+    width: 70%;
+    margin: 0 auto;
+}
+
 .feest-element {
     width: 70%;
     margin: 0 auto;
     border:2px solid #02ff96;
     border-radius: 5px;
     overflow: hidden;
+    margin-bottom: 1%;
 }

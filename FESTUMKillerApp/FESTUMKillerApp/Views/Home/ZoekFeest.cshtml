@@ -35,11 +35,12 @@
             </li>
         </ul>
     </nav>
+    <div class="allefeest-elementen">
     <h1>Zoek een feest</h1>
-    @foreach(Feest feest in Model.feesten)
+    @foreach (Feest feest in Model.feesten)
     {
-        <div class="feest-element">
-            <a href="~/Home/OverzichtFeest/@feest.FeestID">
+        <a href="~/Home/OverzichtFeest?feestId=@feest.FeestID">
+            <div class="feest-element">
                 @*<img src="@Url.Action("getImg", "Person", new { id = item.Id })" alt="Person Image" />*@
                 <img src="data:image;base64,@System.Convert.ToBase64String(@feest.Plaatje)" />
                 @*<img src="@feest.Plaatje">*@
@@ -47,7 +48,8 @@
                 <p>@feest.Beschrijving</p>
                 <p>@feest.Locatie</p>
                 <p>@feest.DatumTijdFeest</p>
-            </a>
-        </div>
+            </div>
+        </a>
     }
+    </div>
 </body>

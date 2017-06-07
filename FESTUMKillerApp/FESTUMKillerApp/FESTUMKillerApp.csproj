@@ -202,6 +202,7 @@
     <Content Include="Views\Home\Main.cshtml" />
     <Content Include="Views\Home\MaakFeest.cshtml" />
     <Content Include="Views\Home\ZoekFeest.cshtml" />
+    <Content Include="Views\Home\OverzichtFeest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

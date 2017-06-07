@@ -10,6 +10,6 @@ namespace FESTUMKillerApp.Models
     public class MaakFeestModel: UserModel
     {
         [Required]
-        public Feest aanTeMakenFeest { get; set; }
+        public Feest feest { get; set; }
     }
 }

@@ -47,6 +47,16 @@ namespace FESTUMKillerApp.Controllers
             return View(model);
         }
 
+        public ActionResult OverzichtFeest(MaakFeestModel model)
+        {
+            model.huidigeGebruiker = (User)Session["huidigeGebruiker"];
+
+            FeestRepository fr = new FeestRepository();
+            model.feest = fr.getFeest(Convert.ToInt32(Request.QueryString["feestId"]));
+
+            return View(model);
+        }
+
         [HttpPost]
         public ActionResult Index(LoginModel model)
         {
@@ -77,13 +87,14 @@ namespace FESTUMKillerApp.Controllers
             DateTime date = DateTime.Parse(Request.Form["feestDatumTijd"]);
 
             //Convert image naar byte array
-            byte[] plaatje = System.IO.File.ReadAllBytes("C:\\Users\\Lorenso\\Documents\\HBO-ICT periode 3\\FUN\\Standaard_profielfoto.png");
+            byte[] plaatje = new byte[Request.Files["filename"].ContentLength];
+            Request.Files["filename"].InputStream.Read(plaatje, 0, plaatje.Length);
 
             Feest fissa = new Feest(Request.Form["feestNaam"], Request.Form["adres"], Request.Form["beschrijving"], (int)modelFeest.huidigeGebruiker.UserID, plaatje, date);
 
             fr.saveFeest(fissa);
 
-            return RedirectToAction("Main", "Home");
+            return RedirectToAction("ZoekFeest", "Home");
         }
     }
 }

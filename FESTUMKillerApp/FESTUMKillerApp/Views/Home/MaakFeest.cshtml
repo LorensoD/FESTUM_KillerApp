@@ -36,7 +36,7 @@
         </ul>
     </nav>
     <div class="MaakFeest">
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
             <h1>Maak een nieuw feest aan</h1>
             @*@Html.EditorFor(MaakFeestModel => MaakFeestModel.aanTeMakenFeest.Naam, new { @type = "text", @name = "feestNaam", @placeholder = "De naam van het feest", @required = "required", @class="input-txt" })*@
             <input type="text" name="feestNaam" placeholder="De naam van het feest" required="required" class="input-txt" />
@@ -46,11 +46,7 @@
             @*@Html.TextBoxFor(MaakFeestModel => MaakFeestModel.aanTeMakenFeest.Naam)
             @Html.TextBoxFor(MaakFeestModel => MaakFeestModel.aanTeMakenFeest.Locatie)
             @Html.TextAreaFor(MaakFeestModel => MaakFeestModel.aanTeMakenFeest.Beschrijving)*@
-            <div class="form-group">
-                <input type="file" name="filename" accept="image/gif, image/jpeg, image/png" required="required" class="btn">
-                @*<input type='file' onchange="readURL(this);" />
-                <img id="blah" src="#" alt="your image" />*@
-            </div>
+            <input type="file" name="filename" accept="image/gif, image/jpeg, image/png" required="required" class="btn">
             <button type="submit" class="btn btn--right">Maak feest</button>
         </form>
     </div>
