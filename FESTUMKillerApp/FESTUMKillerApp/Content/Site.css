@@ -30,6 +30,10 @@ html {
   color: #02ff96;
 }
 
+.login img{
+    width: 450px;
+}
+
 .input-txt {
   width: 100%;
   padding: 20px 10px;
@@ -101,6 +105,12 @@ html {
 }
 
 /*Einde css inlog pagina*/
+
+.plaatje-boven-nav img{
+    width: 40%;
+    display:block;
+    margin:auto;
+}
 
 /*Begin css voor NAV bar*/
 nav {
@@ -220,11 +230,6 @@ a {
     margin: 0 auto;
 }
 
-.OverzichtEnkelFeest img{
-    width: 30%;
-    float: right;
-}
-
 .naarFeestKnop {
     padding: 15px 30px;
     border: none;
@@ -250,10 +255,25 @@ a {
     border-radius: 5px;
     display: block;
     overflow: auto;
-    margin-top: 50px;
+    width: 100%;
+    margin-top: 10%;
 }
 
 .scrolbare-div-content {
     height: 25%;
     overflow-y: scroll;
+}
+
+.knop-en-gastenlijst {
+    float: right;
+    z-index: 100;
+    margin-top: 1%;
+}
+
+.plaatje-feest img{
+    width: 25%;
+    float: right;
+    z-index: 100;
+    margin-right: 15%;
+    margin-top: 1%;
 }

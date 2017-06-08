@@ -13,6 +13,9 @@
 </head>
 
 <body>
+    <div class="plaatje-boven-nav">
+        <img src="~/Resources/FESTUM-logo.jpg" />
+    </div>
     <nav>
         <ul class="menu">
             <li><a href="~/Home/Main">home</a></li>
@@ -35,18 +38,10 @@
             </li>
         </ul>
     </nav>
-    <div class="OverzichtEnkelFeest">
-        <h1>@Model.feest.Naam</h1>
-        <h3>Beschrijving:</h3>
-        <p>@Model.feest.Beschrijving</p>
-        <h3>Locatie:</h3>
-        <p>@Model.feest.Locatie</p>
-        <h3>Datum:</h3>
-        <p>@Model.feest.DatumTijdFeest.ToShortDateString()</p>
-        <h3>Aanvangstijd:</h3>
-        <p>@Model.feest.DatumTijdFeest.ToString("hh:mm")</p>
+    <div class="plaatje-feest">
+        <img src="data:image;base64,@System.Convert.ToBase64String(@Model.feest.Plaatje)" />
     </div>
-    <div>
+    <div class="knop-en-gastenlijst">
         @if (Model.feest.Gasten.Contains(Model.huidigeGebruiker.UserID))
         {
             <form method="post">
@@ -71,9 +66,18 @@
             </div>
         </div>
     </div>
-    <div>
-        <img src="data:image;base64,@System.Convert.ToBase64String(@Model.feest.Plaatje)" />
+    <div class="OverzichtEnkelFeest">
+        <h1>@Model.feest.Naam</h1>
+        <h3>Beschrijving:</h3>
+        <p>@Model.feest.Beschrijving</p>
+        <h3>Locatie:</h3>
+        <p>@Model.feest.Locatie</p>
+        <h3>Datum:</h3>
+        <p>@Model.feest.DatumTijdFeest.ToShortDateString()</p>
+        <h3>Aanvangstijd:</h3>
+        <p>@Model.feest.DatumTijdFeest.ToString("hh:mm")</p>
     </div>
+    
         @*<img src="data:image;base64,@System.Convert.ToBase64String(@Model.feest.Plaatje)" />
         @if (Model.feest.Gasten.Contains(Model.huidigeGebruiker.UserID))
         {
