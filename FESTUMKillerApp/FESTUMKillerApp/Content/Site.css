@@ -213,3 +213,14 @@ a {
     overflow: hidden;
     margin-bottom: 1%;
 }
+
+/*Begin css overzicht enkel feest*/
+.OverzichtEnkelFeest {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.OverzichtEnkelFeest img{
+    width: 30%;
+    float: right;
+}

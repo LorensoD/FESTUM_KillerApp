@@ -47,7 +47,7 @@ namespace FestumClasses.Repository.Context
 
             using (SqlDataReader reader = GetGuests.ExecuteReader())
             {
-                if (reader.Read())
+                while (reader.Read())
                 {
                     gasten.Add((int)reader["UserId"]);
                 }
@@ -57,7 +57,7 @@ namespace FestumClasses.Repository.Context
             {
                 if (reader.Read())
                 {
-                    Feest fissa = new Feest((int)reader["FeestId"], (string)reader["Naam"], (string)reader["Locatie"], (string)reader["Beschrijving"], (int)reader["OrganisatorId"], gasten, (DateTime)((DateTime)reader["Datum"] + (TimeSpan)reader["AanvangTijd"]));
+                    Feest fissa = new Feest((int)reader["FeestId"], (string)reader["Naam"], (string)reader["Locatie"], (string)reader["Beschrijving"], (int)reader["OrganisatorId"], (byte[])reader["Plaatje"], gasten, (DateTime)((DateTime)reader["Datum"] + (TimeSpan)reader["AanvangTijd"]));
                     return fissa;
                 }
             }

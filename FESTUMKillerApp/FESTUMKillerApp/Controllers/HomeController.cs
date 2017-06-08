@@ -51,8 +51,11 @@ namespace FESTUMKillerApp.Controllers
         {
             model.huidigeGebruiker = (User)Session["huidigeGebruiker"];
 
-            FeestRepository fr = new FeestRepository();
+            FeestRepository fr = new FeestRepository();            
             model.feest = fr.getFeest(Convert.ToInt32(Request.QueryString["feestId"]));
+
+            GastenlijstRepository gr = new GastenlijstRepository();
+            model.gastenMetNaam = gr.getAllGastenlijst(model.feest.FeestID);
 
             return View(model);
         }
@@ -95,6 +98,34 @@ namespace FESTUMKillerApp.Controllers
             fr.saveFeest(fissa);
 
             return RedirectToAction("ZoekFeest", "Home");
+        }
+
+        [HttpPost]
+        public ActionResult OverzichtFeest()
+        {
+            MaakFeestModel model = new MaakFeestModel();
+            model.huidigeGebruiker = (User)Session["huidigeGebruiker"];
+
+            FeestRepository fr = new FeestRepository();
+            model.feest = fr.getFeest(Convert.ToInt32(Request.QueryString["feestId"]));
+
+            GastenlijstRepository gr = new GastenlijstRepository();
+            model.gastenMetNaam = gr.getAllGastenlijst(model.feest.FeestID);
+
+            if (model.feest.Gasten.Contains(model.huidigeGebruiker.UserID))
+            {
+                gr.deleteGastenlijst(model.huidigeGebruiker.UserID, model.feest.FeestID);
+            }
+            else
+            {
+                gr.saveGastenlijst(model.huidigeGebruiker.UserID, model.feest.FeestID);
+            }
+
+            model.feest = fr.getFeest(Convert.ToInt32(Request.QueryString["feestId"]));
+            model.gastenMetNaam = gr.getAllGastenlijst(model.feest.FeestID);
+
+            return View(model);
+
         }
     }
 }

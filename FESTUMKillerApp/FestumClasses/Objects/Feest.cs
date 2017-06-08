@@ -188,12 +188,14 @@ namespace FestumClasses.Objects
             this.DatumTijdFeest = datumTijdFeest;
         }
 
-        public Feest(string naam, string locatie, string beschrijving, int hostFeest, List<int> gasten, DateTime datumTijdFeest)
+        public Feest(int feestID, string naam, string locatie, string beschrijving, int hostFeest, byte[] plaatje, List<int> gasten, DateTime datumTijdFeest)
         {
+            this.FeestID = feestID;
             this.Naam = naam;
             this.Locatie = locatie;
             this.Beschrijving = beschrijving;
             this.HostFeest = hostFeest;
+            this.Plaatje = plaatje;
             this.Gasten = gasten;
             this.DatumTijdFeest = datumTijdFeest;
         }

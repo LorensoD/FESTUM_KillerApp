@@ -124,5 +124,11 @@ namespace FestumClasses.Objects
             this.EMail = eMail;
             this.Profielfoto = profielfoto;
         }
+
+        public User(int userID, string gebruikersnaam)
+        {
+            this.UserID = userID;
+            this.Gebruikersnaam = gebruikersnaam;
+        }
     }
 }

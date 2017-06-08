@@ -11,5 +11,7 @@ namespace FESTUMKillerApp.Models
     {
         [Required]
         public Feest feest { get; set; }
+
+        public List<User> gastenMetNaam { get; set; }
     }
 }
