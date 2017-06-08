@@ -14,7 +14,7 @@ namespace FestumClasses.Repository.Context
     {
         private SqlConnection conn = getConnection();
 
-        public List<User> getAllGasten(int feestId)
+        public List<object> getAllValues(int feestId)
         {
             List<int> UserIds = new List<int>();
             List<User> Users = new List<User>();
@@ -44,11 +44,9 @@ namespace FestumClasses.Repository.Context
                     {
                         Users.Add(new User((int)reader["UserId"], (string)reader["Gebruikersnaam"]));
                     }
-                    return Users;
                 }
             }
-
-           
+            return Users.Cast<object>().ToList();
         }
 
 

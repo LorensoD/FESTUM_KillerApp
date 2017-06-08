@@ -36,27 +36,6 @@
         </ul>
     </nav>
     <div class="OverzichtEnkelFeest">
-        <img src="data:image;base64,@System.Convert.ToBase64String(@Model.feest.Plaatje)" />
-        @if (Model.feest.Gasten.Contains(Model.huidigeGebruiker.UserID))
-        {
-            <form method="post">
-                <button type="submit" class="btn btn--right">Ik ga niet meer</button>
-            </form>
-        }
-        else
-        {
-            <form method="post">
-                <button type="submit" class="btn btn--right">Ik wil naar dit feest</button>
-            </form>
-        }
-        <div class="scrolbare-div" overflow-y: scroll>
-            @foreach(User gast in Model.gastenMetNaam)
-            {
-                <a href="~/Home/OverzichtUser?userId=@gast.UserID">
-                    <h4>@gast.Gebruikersnaam</h4>
-                </a>
-            }
-        </div>
         <h1>@Model.feest.Naam</h1>
         <h3>Beschrijving:</h3>
         <p>@Model.feest.Beschrijving</p>
@@ -67,4 +46,66 @@
         <h3>Aanvangstijd:</h3>
         <p>@Model.feest.DatumTijdFeest.ToString("hh:mm")</p>
     </div>
+    <div>
+        @if (Model.feest.Gasten.Contains(Model.huidigeGebruiker.UserID))
+        {
+            <form method="post">
+                <button type="submit" class="naarFeestKnop">Ik ga niet meer</button>
+            </form>
+        }
+        else
+        {
+            <form method="post">
+                <button type="submit" class="naarFeestKnop">Ik wil naar dit feest</button>
+            </form>
+        }
+        <div class="scrolbare-div">
+            <h3>Gastenlijst:</h3>
+            <div class="scrolbare-div-content">
+                @foreach (User gast in Model.gastenMetNaam)
+                {
+                    <a href="~/Home/OverzichtUser?userId=@gast.UserID">
+                        <h4>@gast.Gebruikersnaam</h4>
+                    </a>
+                }
+            </div>
+        </div>
+    </div>
+    <div>
+        <img src="data:image;base64,@System.Convert.ToBase64String(@Model.feest.Plaatje)" />
+    </div>
+        @*<img src="data:image;base64,@System.Convert.ToBase64String(@Model.feest.Plaatje)" />
+        @if (Model.feest.Gasten.Contains(Model.huidigeGebruiker.UserID))
+        {
+            <form method="post">
+                <button type="submit" class="naarFeestKnop">Ik ga niet meer</button>
+            </form>
+        }
+        else
+        {
+            <form method="post">
+                <button type="submit" class="naarFeestKnop">Ik wil naar dit feest</button>
+            </form>
+        }
+        <div class="scrolbare-div">
+            <h3>Gastenlijst:</h3>
+            <div class="scrolbare-div-content">
+            @foreach(User gast in Model.gastenMetNaam)
+            {
+                <a href="~/Home/OverzichtUser?userId=@gast.UserID">
+                    <h4>@gast.Gebruikersnaam</h4>
+                </a>
+            }
+            </div>
+        </div>
+        <h1>@Model.feest.Naam</h1>
+        <h3>Beschrijving:</h3>
+        <p>@Model.feest.Beschrijving</p>
+        <h3>Locatie:</h3>
+        <p>@Model.feest.Locatie</p>
+        <h3>Datum:</h3>
+        <p>@Model.feest.DatumTijdFeest.ToShortDateString()</p>
+        <h3>Aanvangstijd:</h3>
+        <p>@Model.feest.DatumTijdFeest.ToString("hh:mm")</p>
+    </div>*@
 </body>

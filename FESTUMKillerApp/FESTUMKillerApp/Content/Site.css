@@ -224,3 +224,36 @@ a {
     width: 30%;
     float: right;
 }
+
+.naarFeestKnop {
+    padding: 15px 30px;
+    border: none;
+    background: #02ff96;
+    color: white;
+
+    float: right;
+    display: block;
+    overflow: auto;
+}
+
+.naarFeestKnop:hover {
+    -moz-transition: background-color 0.5s ease-in-out;
+    -o-transition: background-color 0.5s ease-in-out;
+    -webkit-transition: background-color 0.5s ease-in-out;
+    transition: background-color 0.5s ease-in-out;
+    background: #00d379;
+}
+
+.scrolbare-div {
+    float: right;
+    border:2px solid #02ff96;
+    border-radius: 5px;
+    display: block;
+    overflow: auto;
+    margin-top: 50px;
+}
+
+.scrolbare-div-content {
+    height: 25%;
+    overflow-y: scroll;
+}
