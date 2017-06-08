@@ -34,7 +34,16 @@
             </li>
         </ul>
     </nav>
-    <div>
-        <p>@Model.feest.Naam</p>
+    <div class="MaakFeest">
+        <h1>@Model.feest.Naam</h1>
+        <h3>Beschrijving:</h3>
+        <p>@Model.feest.Beschrijving</p>
+        <h3>Locatie:</h3>
+        <p>@Model.feest.Locatie</p>
+        <h3>Datum:</h3>
+        @*<p>@Model.feest.DatumTijdFeest.DayOfYear</p>*@
+        <h3>Aanvangstijd:</h3>
+        @*<p>@Model.feest.DatumTijdFeest.ToString("hh:mm")</p>*@
+        <img src="data:image;base64,@System.Convert.ToBase64String(@Model.feest.Plaatje)"/>
     </div>
 </body>

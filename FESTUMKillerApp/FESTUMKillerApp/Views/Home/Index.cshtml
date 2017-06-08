@@ -16,6 +16,7 @@
             <strong>Welcome.</strong> Please login.
         </h1>
         <form method="post">
+            <p class="error">@ViewBag.error</p>
             @Html.TextBoxFor(LoginModel => LoginModel.gebruikersnaam, new { @placeholder = "Gebruikersnaam", @required = "required", @class="input-txt" })
             @*<input type="text" name="user" placeholder="Username" required="required" class="input-txt" />*@
             @Html.PasswordFor(LoginModel => LoginModel.wachtwoord, new { @placeholder = "Wachtwoord", @required = "required", @class = "input-txt" })
