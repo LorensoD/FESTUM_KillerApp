@@ -12,33 +12,33 @@ namespace FESTUMKillerApp.Controllers
     public class UserController : ApiController
     {
         // GET api/<controller>
-        public string Get(int userID)
+        //public User Get(int userID)
+        //{
+        //    UserRepository ur = new UserRepository();
+        //    return ur.getUser(userID);
+        //}
+
+        // GET api/<controller>/5
+        public string Get(int id)
         {
             UserRepository ur = new UserRepository();
-            User user = ur.getUser(userID);
-
-            return "Gebruikersnaam =" + user.Gebruikersnaam + " Status =" + user.Status + " E-mail =" + user.EMail;
+            User user = ur.getUser(id);
+            return "Gebruikersnaam: " + user.Gebruikersnaam + ", Status: " + user.Status;
         }
 
-        //// GET api/<controller>/5
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
+        // POST api/<controller>
+        public void Post([FromBody]string value)
+        {
+        }
 
-        //// POST api/<controller>
-        //public void Post([FromBody]string value)
-        //{
-        //}
+        // PUT api/<controller>/5
+        public void Put(int id, [FromBody]string value)
+        {
+        }
 
-        //// PUT api/<controller>/5
-        //public void Put(int id, [FromBody]string value)
-        //{
-        //}
-
-        //// DELETE api/<controller>/5
-        //public void Delete(int id)
-        //{
-        //}
+        // DELETE api/<controller>/5
+        public void Delete(int id)
+        {
+        }
     }
 }
