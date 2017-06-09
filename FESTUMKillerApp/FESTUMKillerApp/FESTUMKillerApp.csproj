@@ -204,6 +204,7 @@
     <Content Include="Views\Home\MaakFeest.cshtml" />
     <Content Include="Views\Home\ZoekFeest.cshtml" />
     <Content Include="Views\Home\OverzichtFeest.cshtml" />
+    <Content Include="Views\Home\Registratie.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -53,7 +53,7 @@ namespace FestumClasses.Repository.Context
             return null;
         }
 
-        public void saveValue(object value)
+        public void saveValue(object value, string wachtwoord)
         {
             User obj = (User)value;
 
@@ -61,13 +61,17 @@ namespace FestumClasses.Repository.Context
             using (SqlCommand cmd = new SqlCommand(InsertQuery, conn))
             {
                 cmd.Parameters.AddWithValue("gebruikersnaam", (string)obj.Gebruikersnaam);
-                cmd.Parameters.AddWithValue("wachtwoord", (string)obj.Wachtwoord);
+                cmd.Parameters.AddWithValue("wachtwoord", wachtwoord);
                 cmd.Parameters.AddWithValue("status", (string)obj.Status);
                 cmd.Parameters.AddWithValue("e-mail", (string)obj.EMail);
                 cmd.Parameters.AddWithValue("profielfoto", obj.Profielfoto);
-                obj.Wachtwoord = "";
                 cmd.ExecuteNonQuery();
             }
+        }
+
+        public void saveValue(object value)
+        {
+            throw new NotImplementedException();
         }
 
         public int tryLogin(string username, string password)
@@ -98,6 +102,38 @@ namespace FestumClasses.Repository.Context
                 cmd.Parameters.AddWithValue("id", ((User)value).UserID);
                 cmd.ExecuteNonQuery();
             }
+        }
+
+        public bool checkUsernameUnique(string gebruikersnaam)
+        {
+            string checkUsername = @"SELECT Gebruikersnaam FROM [User] WHERE gebruikersnaam = @gb";
+            SqlCommand CheckUsername = new SqlCommand(checkUsername, conn);
+            CheckUsername.Parameters.AddWithValue("gb", gebruikersnaam);
+
+            using (SqlDataReader reader = CheckUsername.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public int getUserId(string gebruikersnaam)
+        {
+            string getId = @"SELECT UserId FROM [User] WHERE gebruikersnaam = @gb";
+            SqlCommand GetId = new SqlCommand(getId, conn);
+            GetId.Parameters.AddWithValue("gb", gebruikersnaam);
+
+            using (SqlDataReader reader = GetId.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    return (int)reader["UserId"];
+                }
+            }
+            return -1;
         }
     }
 }

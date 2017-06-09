@@ -28,6 +28,11 @@ namespace FestumClasses.Repository.Logic
             return (User)this.context.getValue(id);
         }
 
+        public void saveUser(User user, string wachtwoord)
+        {
+            this.context.saveValue(user, wachtwoord);
+        }
+
         public void saveUser(User user)
         {
             this.context.saveValue(user);
@@ -41,6 +46,16 @@ namespace FestumClasses.Repository.Logic
         public int tryLogin(string username, string password)
         {
             return this.context.tryLogin(username, password);
+        }
+
+        public bool checkUsernameUnique(string gebruikersnaam)
+        {
+            return this.context.checkUsernameUnique(gebruikersnaam);
+        }
+
+        public int getUserId(string gebruikersnaam)
+        {
+            return this.context.getUserId(gebruikersnaam);
         }
     }
 }

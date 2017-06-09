@@ -19,10 +19,15 @@ namespace FESTUMKillerApp.Controllers
             return View();
         }
 
+        public ActionResult Registratie()
+        {
+            return View();
+        }
+
         public ActionResult Main(UserModel model)
         {
             UserRepository ur = new UserRepository();
-
+                        
             model.huidigeGebruiker = ur.getUser((int)Session["UserID"]);
             Session["huidigeGebruiker"] = model.huidigeGebruiker;
 
@@ -78,6 +83,34 @@ namespace FESTUMKillerApp.Controllers
             {
                 return RedirectToAction("Main", "Home");
             }
+        }
+
+        [HttpPost]
+        public ActionResult Registratie(UserModel mdoel)
+        {
+            UserRepository ur = new UserRepository();
+            if(ur.checkUsernameUnique(Request.Form["gebruikersnaam"]))
+            {
+                ViewBag.error("De gebruikersnaam bestaat al");
+                return View();
+            }
+
+            if(Request.Form["Wachtwoord"] != Request.Form["Bevestig wachwtwoord"])
+            {
+                ViewBag.error("Het wachtwoord komt niet overeen");
+                return View();
+            }
+
+            //Convert image naar byte array
+            byte[] plaatje = new byte[Request.Files["filename"].ContentLength];
+            Request.Files["filename"].InputStream.Read(plaatje, 0, plaatje.Length);
+
+            User newUser = new User(Request.Form["gebruikersnaam"], Request.Form["status"], Request.Form["email"], plaatje);
+            ur.saveUser(newUser, Request.Form["Wachtwoord"]);
+
+            Session["UserId"] = ur.getUserId(newUser.Gebruikersnaam);
+
+            return RedirectToAction("Main", "Home");
         }
 
         [HttpPost]

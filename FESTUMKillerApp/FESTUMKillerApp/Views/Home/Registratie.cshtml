@@ -1,0 +1,33 @@
+﻿@using FESTUMKillerApp.Models
+@model UserModel
+
+@{
+    Layout = null;
+}
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>FESTUM</title>
+    <link rel="stylesheet" href="~/Content/Site.css">
+    <script class="jsbin" src="~/Scripts/_references.js"></script>
+</head>
+
+<body>
+    <div class="plaatje-boven-nav">
+        <img src="~/Resources/FESTUM-logo.jpg" />
+    </div>
+    <div class="MaakFeest">
+        <form method="post" enctype="multipart/form-data">
+            <h1>Registreren voor FESTUM</h1>
+            <p> @ViewBag.error</p>
+            <input type="text" name="gebruikersnaam" placeholder="Gebruikersnaam" required="required" class="input-txt" />
+            <input type="email" name="email" placeholder="E-mail adres" required="required" class="input-txt" />
+            <input type="password" name="wachtwoord" placeholder="Wachtwoord" required="required" class="input-txt" />
+            <input type="password" name="bevestigWachtwoord" placeholder="Bevestig wachtwoord" required="required" class="input-txt" />
+            <textarea type="Status" rows="2" name="status" placeholder="Status" required="required" class="input-txt"></textarea>
+            <label for="filename">Kies een profielfoto:</label>
+            <input type="file" name="filename" accept="image/gif, image/jpeg, image/png" required="required" class="btn">
+            <button type="submit" class="btn btn--right">Registreren</button>
+        </form>
+    </div>
+</body>

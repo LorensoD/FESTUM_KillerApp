@@ -15,7 +15,6 @@ namespace FestumClasses.Objects
         private string status;
         private string eMail;
         private byte[] profielfoto;
-        private string wachtwoord;
 
         //Het ID van de User in de database
         public int UserID
@@ -101,21 +100,17 @@ namespace FestumClasses.Objects
             }
         }
 
-        //Het wachtwoord van de gebruiker
-        public string Wachtwoord
+        public User(int userID, string gebruikersnaam, List<int> vrienden, string status, string eMail, byte[] profielfoto)
         {
-            get
-            {
-                return wachtwoord;
-            }
-
-            set
-            {
-                wachtwoord = value;
-            }
+            this.UserID = userID;
+            this.Gebruikersnaam = gebruikersnaam;
+            this.Vrienden = vrienden;
+            this.Status = status;
+            this.EMail = eMail;
+            this.Profielfoto = profielfoto;
         }
 
-        public User(int userID, string gebruikersnaam, List<int> vrienden, string status, string eMail, byte[] profielfoto)
+        public User(string gebruikersnaam, string status, string eMail, byte[] profielfoto)
         {
             this.UserID = userID;
             this.Gebruikersnaam = gebruikersnaam;
