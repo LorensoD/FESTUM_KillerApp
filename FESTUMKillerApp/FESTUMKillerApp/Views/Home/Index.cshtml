@@ -14,6 +14,7 @@
     <div class="login">
         <img src="~/Resources/FESTUM-logo.jpg"/>
         <form method="post">
+            @ViewBag.error
             @Html.TextBoxFor(LoginModel => LoginModel.gebruikersnaam, new { @placeholder = "Gebruikersnaam", @required = "required", @class="input-txt" })
             @*<input type="text" name="user" placeholder="Username" required="required" class="input-txt" />*@
             @Html.PasswordFor(LoginModel => LoginModel.wachtwoord, new { @placeholder = "Wachtwoord", @required = "required", @class = "input-txt" })

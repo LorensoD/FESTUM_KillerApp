@@ -91,13 +91,13 @@ namespace FESTUMKillerApp.Controllers
             UserRepository ur = new UserRepository();
             if(ur.checkUsernameUnique(Request.Form["gebruikersnaam"]))
             {
-                ViewBag.error("De gebruikersnaam bestaat al");
+                ViewBag.error = "De gebruikersnaam bestaat al";
                 return View();
             }
 
-            if(Request.Form["Wachtwoord"] != Request.Form["Bevestig wachwtwoord"])
+            if(Request.Form["wachtwoord"] != Request.Form["bevestigWachtwoord"])
             {
-                ViewBag.error("Het wachtwoord komt niet overeen");
+                ViewBag.error = "Het wachtwoord komt niet overeen";
                 return View();
             }
 
@@ -106,9 +106,9 @@ namespace FESTUMKillerApp.Controllers
             Request.Files["filename"].InputStream.Read(plaatje, 0, plaatje.Length);
 
             User newUser = new User(Request.Form["gebruikersnaam"], Request.Form["status"], Request.Form["email"], plaatje);
-            ur.saveUser(newUser, Request.Form["Wachtwoord"]);
+            ur.saveUser(newUser, Request.Form["wachtwoord"]);
 
-            Session["UserId"] = ur.getUserId(newUser.Gebruikersnaam);
+            Session["UserID"] = ur.getUserId(newUser.Gebruikersnaam);
 
             return RedirectToAction("Main", "Home");
         }

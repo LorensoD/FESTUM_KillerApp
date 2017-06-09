@@ -54,3 +54,9 @@ C:\Users\Lorenso\Documents\GitHub\FESTUM_KillerApp\FESTUMKillerApp\FESTUMKillerA
 C:\Users\Lorenso\Documents\GitHub\FESTUM_KillerApp\FESTUMKillerApp\FESTUMKillerApp\obj\Debug\FESTUMKillerApp.csprojResolveAssemblyReference.cache
 C:\Users\Lorenso\Documents\GitHub\FESTUM_KillerApp\FESTUMKillerApp\FESTUMKillerApp\obj\Debug\FESTUMKillerApp.dll
 C:\Users\Lorenso\Documents\GitHub\FESTUM_KillerApp\FESTUMKillerApp\FESTUMKillerApp\obj\Debug\FESTUMKillerApp.pdb
+C:\Users\Lorenso\Documents\GitHub\FESTUM_KillerApp\FESTUMKillerApp\FESTUMKillerApp\bin\System.Net.Http.Formatting.dll
+C:\Users\Lorenso\Documents\GitHub\FESTUM_KillerApp\FESTUMKillerApp\FESTUMKillerApp\bin\System.Web.Http.dll
+C:\Users\Lorenso\Documents\GitHub\FESTUM_KillerApp\FESTUMKillerApp\FESTUMKillerApp\bin\System.Web.Http.WebHost.dll
+C:\Users\Lorenso\Documents\GitHub\FESTUM_KillerApp\FESTUMKillerApp\FESTUMKillerApp\bin\System.Net.Http.Formatting.xml
+C:\Users\Lorenso\Documents\GitHub\FESTUM_KillerApp\FESTUMKillerApp\FESTUMKillerApp\bin\System.Web.Http.xml
+C:\Users\Lorenso\Documents\GitHub\FESTUM_KillerApp\FESTUMKillerApp\FESTUMKillerApp\bin\System.Web.Http.WebHost.xml

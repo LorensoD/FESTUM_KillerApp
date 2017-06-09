@@ -25,7 +25,7 @@ namespace FestumClasses.Repository.Context
         {
             List<int> vrienden = new List<int>();
 
-            string Getuser = @"SELECT UserId, Gebruikersnaam, Status, [E-mail], Profielfoto FROM [User] WHERE UserId = @id";
+            string Getuser = @"SELECT UserId, Gebruikersnaam, Status, Email, Profielfoto FROM [User] WHERE UserId = @id";
             string Getfriends = @"SELECT UserIdVriend FROM Vriendenlijst WHERE UserId = @id";
 
             SqlCommand GetUser = new SqlCommand(Getuser, conn);
@@ -46,7 +46,7 @@ namespace FestumClasses.Repository.Context
             {
                 if (reader.Read())
                 {
-                    User gebruiker = new User((int)reader["UserId"], (string)reader["Gebruikersnaam"], vrienden, (string)reader["Status"], (string)reader["E-mail"], (byte[])reader["Profielfoto"]);
+                    User gebruiker = new User((int)reader["UserId"], (string)reader["Gebruikersnaam"], vrienden, (string)reader["Status"], (string)reader["Email"], (byte[])reader["Profielfoto"]);
                     return gebruiker;
                 }
             }
@@ -57,13 +57,13 @@ namespace FestumClasses.Repository.Context
         {
             User obj = (User)value;
 
-            string InsertQuery = @"INSERT INTO [User] (Gebruikersnaam, Wachtwoord, Status, [E-mail], Profielfoto) VALUES (@gebruikersnaam, @wachtwoord, @status, @e-mail, @profielfoto)";
+            string InsertQuery = @"INSERT INTO [User] (Gebruikersnaam, Wachtwoord, Status, Email, Profielfoto) VALUES (@gebruikersnaam, @wachtwoord, @status, @email, @profielfoto)";
             using (SqlCommand cmd = new SqlCommand(InsertQuery, conn))
             {
                 cmd.Parameters.AddWithValue("gebruikersnaam", (string)obj.Gebruikersnaam);
                 cmd.Parameters.AddWithValue("wachtwoord", wachtwoord);
                 cmd.Parameters.AddWithValue("status", (string)obj.Status);
-                cmd.Parameters.AddWithValue("e-mail", (string)obj.EMail);
+                cmd.Parameters.AddWithValue("email", (string)obj.EMail);
                 cmd.Parameters.AddWithValue("profielfoto", obj.Profielfoto);
                 cmd.ExecuteNonQuery();
             }
