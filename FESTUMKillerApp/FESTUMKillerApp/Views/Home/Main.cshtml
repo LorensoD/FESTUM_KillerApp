@@ -18,22 +18,22 @@
     </div>
     <nav>
         <ul class="menu">
-            <li><a href="~/Home/Main">home</a></li>
+            <li><a href="@Url.Action("Main", "Home")">home</a></li>
             <!-- products sub-menu -->
             <li>
                 <a href="#">Feesten</a>
                 <ul>
-                    <li><a href="~/Home/ZoekFeest">Feesten zoeken</a></li>
-                    <li><a href="~/Home/MaakFeest">Feest aanmaken</a></li>
+                    <li><a href="@Url.Action("ZoekFeest", "Home")">Feesten zoeken</a></li>
+                    <li><a href="@Url.Action("MaakFeest", "Home")">Feest aanmaken</a></li>
                 </ul>
             </li>
-            <li><a href="~/Home/Chat">Chats</a></li>
+            <li><a href="@Url.Action("Chat", "Home")">Chats</a></li>
             <li><a href="#">Vrienden</a></li>
             <li>
                 <a href="#">@Model.huidigeGebruiker.Gebruikersnaam</a>
                 <ul>
                     <li><a href="#">Bekijk account</a></li>
-                    <li><a href="~/Home/Index">Log uit</a></li>
+                    <li><a href="@Url.Action("Index", "Home")">Log uit</a></li>
                 </ul>
             </li>
         </ul>
