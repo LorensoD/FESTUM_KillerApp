@@ -16,6 +16,8 @@ namespace FESTUMKillerApp.Controllers
         
         public ActionResult Index()
         {
+            Session["UserID"] = null;
+
             return View();
         }
 
@@ -27,7 +29,12 @@ namespace FESTUMKillerApp.Controllers
         public ActionResult Main(UserModel model)
         {
             UserRepository ur = new UserRepository();
-                        
+                
+            if(Session["UserID"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+                    
             model.huidigeGebruiker = ur.getUser((int)Session["UserID"]);
             Session["huidigeGebruiker"] = model.huidigeGebruiker;
 
@@ -36,6 +43,11 @@ namespace FESTUMKillerApp.Controllers
 
         public ActionResult MaakFeest()
         {
+            if (Session["UserID"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             MaakFeestModel modelFeest = new MaakFeestModel();
             modelFeest.huidigeGebruiker = (User)Session["huidigeGebruiker"];
 
@@ -44,6 +56,11 @@ namespace FESTUMKillerApp.Controllers
 
         public ActionResult ZoekFeest(ZoekFeestModel model)
         {
+            if (Session["UserID"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             model.huidigeGebruiker = (User)Session["huidigeGebruiker"];
 
             FeestRepository fr = new FeestRepository();
@@ -54,6 +71,11 @@ namespace FESTUMKillerApp.Controllers
 
         public ActionResult OverzichtFeest(MaakFeestModel model)
         {
+            if (Session["UserID"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             model.huidigeGebruiker = (User)Session["huidigeGebruiker"];
 
             FeestRepository fr = new FeestRepository();            
@@ -67,6 +89,11 @@ namespace FESTUMKillerApp.Controllers
 
         public ActionResult Chat()
         {
+            if (Session["UserID"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             ChatModel model = new ChatModel();
             model.huidigeGebruiker = (User)Session["huidigeGebruiker"];
 
