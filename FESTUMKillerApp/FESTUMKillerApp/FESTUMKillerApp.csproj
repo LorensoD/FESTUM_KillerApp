@@ -169,6 +169,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ChatModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\MaakFeestModel.cs" />
     <Compile Include="Models\UserModel.cs" />
@@ -220,6 +221,7 @@
     <Content Include="Views\Home\ZoekFeest.cshtml" />
     <Content Include="Views\Home\OverzichtFeest.cshtml" />
     <Content Include="Views\Home\Registratie.cshtml" />
+    <Content Include="Views\Home\Chat.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

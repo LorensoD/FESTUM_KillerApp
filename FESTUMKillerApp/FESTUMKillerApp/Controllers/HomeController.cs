@@ -65,6 +65,14 @@ namespace FESTUMKillerApp.Controllers
             return View(model);
         }
 
+        public ActionResult Chat()
+        {
+            ChatModel model = new ChatModel();
+            model.huidigeGebruiker = (User)Session["huidigeGebruiker"];
+
+            return View(model);
+        }
+
         [HttpPost]
         public ActionResult Index(LoginModel model)
         {
@@ -86,7 +94,7 @@ namespace FESTUMKillerApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult Registratie(UserModel mdoel)
+        public ActionResult Registratie(UserModel model)
         {
             UserRepository ur = new UserRepository();
             if(ur.checkUsernameUnique(Request.Form["gebruikersnaam"]))
@@ -158,7 +166,17 @@ namespace FESTUMKillerApp.Controllers
             model.gastenMetNaam = gr.getAllGastenlijst(model.feest.FeestID);
 
             return View(model);
+        }
 
+        [HttpPost]
+        public ActionResult Chat(ChatModel model)
+        {
+            model.huidigeGebruiker = (User)Session["huidigeGebruiker"];
+
+            ChatRepository cr = new ChatRepository();
+            cr.saveBericht(model.bericht);
+
+            return RedirectToAction("Main", "Home");
         }
     }
 }
