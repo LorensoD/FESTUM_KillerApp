@@ -13,8 +13,8 @@ namespace FESTUMKillerApp.App_Start
         {
             configuration.Routes.MapHttpRoute(
                 "API Default",
-                "api/user/{id}",
-                new { controller = "User", action = "Get", id = UrlParameter.Optional });
+                "api/{action}/{id}",
+                new { controller = "API", action = "GetThomas", id = UrlParameter.Optional });
         }
     }
 }

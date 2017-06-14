@@ -50,8 +50,19 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="Objects\FeestTest.cs" />
+    <Compile Include="Objects\UserTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FestumClasses\FestumClasses.csproj">
+      <Project>{c0c20851-965e-44cd-83b7-0b3e206a69cc}</Project>
+      <Name>FestumClasses</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FESTUMKillerApp\FESTUMKillerApp.csproj">
+      <Project>{79799323-c253-4467-ab1f-5a7a36f3d36f}</Project>
+      <Name>FESTUMKillerApp</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

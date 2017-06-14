@@ -22,9 +22,9 @@ namespace FESTUMKillerApp
             );
 
             routes.MapRoute(
-                name: "User",
-                url: "api/user/{id}",
-                defaults: new { controller = "User", action = "Get", id = UrlParameter.Optional}
+                name: "API",
+                url: "api/{action}/{id}",
+                defaults: new { controller = "API", action = "GetThomas", id = UrlParameter.Optional}
                 );
         }
     }
