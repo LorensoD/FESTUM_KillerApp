@@ -41,7 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Objects\Chats\Bericht.cs" />
+    <Compile Include="Objects\Chats\Chat.cs" />
+    <Compile Include="Objects\Chats\Groepschat.cs" />
+    <Compile Include="Objects\Chats\TweePersoonsChat.cs" />
     <Compile Include="Objects\Data\Database.cs" />
+    <Compile Include="Objects\Enumerations\GroepschatRang.cs" />
     <Compile Include="Objects\Feest.cs" />
     <Compile Include="Objects\FotoVerhaal.cs" />
     <Compile Include="Objects\User.cs" />
@@ -58,9 +63,7 @@
     <Compile Include="Repository\Logic\GastenlijstRepository.cs" />
     <Compile Include="Repository\Logic\UserRepository.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Objects\Enumerations\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
